@@ -1,0 +1,63 @@
+# Compiled objects
+*.o
+*.obj
+*.elf
+
+# Executables
+*.exe
+*.out
+*.app
+main
+a.out
+
+# Libraries
+*.a
+*.so
+*.so.*
+*.dylib
+*.lib
+*.dll
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Preprocessor output
+*.i
+*.ii
+
+# Assembly output
+*.s
+
+# Dependency files
+*.d
+
+# Build directories
+build/
+bin/
+obj/
+out/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Core dumps
+core
+core.*
+vgcore.*
+
+# Valgrind
+*.log
+valgrind-out.txt
+
+# Coverage
+*.gcno
+*.gcda
+*.gcov
