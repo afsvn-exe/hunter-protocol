@@ -61,3 +61,7 @@ valgrind-out.txt
 *.gcno
 *.gcda
 *.gcov
+
+# The System build artifacts
+the-system/src/phase1/*.o
+the-system/src/phase1/hunter

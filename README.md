@@ -33,6 +33,19 @@
 - GPU Driver Engineer
 - GPU Performance Engineer
 
+## The System
+
+An executable training companion built from scratch during the Protocol.
+```bash
+cd the-system/src/phase1
+make
+./hunter
+```
+
+The System tracks daily progress, quests, and stats — growing alongside the curriculum from terminal app to GPU-accelerated interface.
+
+See [the-system/ARCHITECTURE.md](the-system/ARCHITECTURE.md) for full design.
+
 ## Seasons
 
 ### 🌱 Season 1: Foundation (Days 1-60)
