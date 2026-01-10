@@ -282,21 +282,29 @@ void test_exercise_3(void) {
  * SafeArray containing ALL indices where value appears.
  * ═══════════════════════════════════════════════════════════════════════════ */
 
-error_t safe_array_find(const SafeArray *arr, int value, size_t *out_index) {
-    /* TODO: Implement this function */
-    
+error_t safe_array_find(const SafeArray *arr, int value, size_t *out_index) { 
     /* Step 1: Validate arr pointer */
-    
+	if(arr == NULL){
+	 return ERR_NULL_PTR; 
+	}
+
     /* Step 2: Validate arr is initialized */
-    
+	if(arr->data == NULL){
+	 return ERR_UNINITIALIZED; 
+	}
     /* Step 3: Validate out_index pointer */
-    
+        if(out_index == NULL){
+	 return ERR_NULL_PTR; 
+	}
     /* Step 4: Linear search through arr->data[0..length) */
-    
+        for(size_t i = 0; i < arr -> length; i++){
+	  if(arr->data[i] == value){
+	     *out_index = i; 
+	     return ERR_OK; 
+	  }
+	}
     /* Step 5: If not found, return ERR_INVALID_ARG (or could define ERR_NOT_FOUND) */
-    
-    (void)arr; (void)value; (void)out_index;
-    return ERR_UNINITIALIZED;  /* Placeholder */
+	return ERR_INVALID_ARG; 
 }
 
 /* BOSS CHALLENGE: Implement this for extra XP! */
