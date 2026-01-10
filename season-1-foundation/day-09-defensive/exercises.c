@@ -125,21 +125,24 @@ void test_exercise_1(void) {
  *       INT_MAX and INT_MIN from <limits.h> are useful.
  * ═══════════════════════════════════════════════════════════════════════════ */
 
-error_t checked_add(int a, int b, int *result) {
-    /* TODO: Implement this function */
-    
-    /* Step 1: Check result pointer */
-    
-    /* Step 2: Check for positive overflow 
-     * If both positive, a + b > INT_MAX when b > INT_MAX - a */
-    
-    /* Step 3: Check for negative overflow (underflow)
-     * If both negative, a + b < INT_MIN when b < INT_MIN - a */
-    
-    /* Step 4: Safe to add */
-    
-    (void)a; (void)b; (void)result;  /* Remove when implemented */
-    return ERR_UNINITIALIZED;  /* Placeholder */
+error_t checked_add(int a, int b, int *result){
+    //Step 1: Validate Output Pointer
+    if(result == NULL){
+    	return ERR_NULL_PTR; 
+    }
+    //Step 2: Check for positive overflow
+    //if b > 0, overflow happens when a > INT_MAX - b
+    if(b > 0 && a > INT_MAX - b){
+    	return ERR_OVERFLOW; 
+    }
+    //Step 3: Check for negative underflow
+    //if b < 0, underflow happens when a < INT_MIN - b
+    if(b < 0 && a < INT_MIN - b){
+    	return ERR_UNDERFLOW; 
+    }
+    //Safe to add
+    *result = a + b; 
+    return ERR_OK; 
 }
 
 void test_exercise_2(void) {
