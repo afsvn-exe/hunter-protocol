@@ -209,18 +209,22 @@ void test_exercise_2(void) {
 
 error_t safe_memcpy(void *dest, size_t dest_size, 
                     const void *src, size_t count) {
-    /* TODO: Implement this function */
     
     /* Step 1: Check pointers */
-    
+       if(dest == NULL || src == NULL){
+       	return ERR_NULL_PTR; 
+       }	
     /* Step 2: Check for zero count (invalid operation) */
-    
+       if(count == 0){
+       	return ERR_INVALID_ARG; 
+       }
     /* Step 3: Check bounds - will count fit in dest? */
-    
+       if(count > dest_size){
+       	return ERR_OUT_OF_BOUNDS; 
+       }
     /* Step 4: Perform the copy */
-    
-    (void)dest; (void)dest_size; (void)src; (void)count;
-    return ERR_UNINITIALIZED;  /* Placeholder */
+       memcpy(dest, src, count);
+       return ERR_OK; 
 }
 
 void test_exercise_3(void) {
@@ -233,7 +237,7 @@ void test_exercise_3(void) {
     /* Normal copy */
     memset(dest, 0, sizeof(dest));
     err = safe_memcpy(dest, sizeof(dest), src, 13);
-    CHECK(err == ERR_OK && strcmp(dest, "Hello, World") == 0, 
+    CHECK(err == ERR_OK && strcmp(dest, "Hello, World!") == 0, 
           "Normal copy works");
     
     /* Exact fit */
