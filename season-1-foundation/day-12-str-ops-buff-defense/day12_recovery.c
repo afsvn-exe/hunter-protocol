@@ -31,7 +31,7 @@ int main(void){
 
 	// Test 3: Empty source 
 	copied = safe_copy(buffer, "", 8);
-        printf("Test 3: \"%s\" (copied %zu)\n", buffer, copied);
+	printf("Test 3: \"%s\" (copied %zu)\n", buffer, copied);
 
 	return 0; 	
 }
